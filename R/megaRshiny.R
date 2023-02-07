@@ -333,6 +333,7 @@ server <- function(input, output, session){
         shiny::req(input$myresponseVector$datapath)
         graphics::plot(myrfmodel()[[1]][[3]]$finalModel,
                        main="Train Error during training model")
+     legend("topright",legend=c("OOB error","Class1 Error","Class2 Error"),col=1:3,lty=3)
     })
     
     output$Statstrain <- shiny::renderPrint({
@@ -677,6 +678,7 @@ server <- function(input, output, session){
             grDevices::pdf(file)
             print(graphics::plot(myrfmodel()[[1]][[3]]$finalModel,
                                  main="Train Error during training model"))
+         legend("topright",legend=c("OOB error","Class1 Error","Class2 Error"),col=1:3,lty=3)
             dev.off()
         }
     )
